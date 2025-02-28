@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jobfind.job.entity.Company;
-import jobfind.job.entity.Job;
+
 import jobfind.job.service.CompanyService;
 
 import java.util.List;
@@ -44,12 +44,18 @@ public class CompanyController {
         companyService.deleteCompany(id);
         return ResponseEntity.noContent().build();
     }
+
+
      @GetMapping("/page")
            public  Page<Company> getUserPage(@RequestParam (defaultValue = "0")int page,@RequestParam (defaultValue = "3")int size){
-            return  ResponseEntity.getAllUser(page,size);}
+            return  companyService.getAllUser(page,size);}
 
     @GetMapping("/sort/{name}") 
 public List<Company>getSorted(@PathVariable String name)
 {
-    return ResponseEntity.getsorted(name);
+    return companyService.getsorted(name);
+
+}
+
+
 }

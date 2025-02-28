@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jobfind.job.entity.Job;
+
 import jobfind.job.entity.JobApplication;
 import jobfind.job.service.JobApplicationService;
 
@@ -46,14 +46,16 @@ public class JobApplicationController {
         return ResponseEntity.noContent().build();
     }
        
-
+    
      @GetMapping("/page")
            public  Page<JobApplication> getUserPage(@RequestParam (defaultValue = "0")int page,@RequestParam (defaultValue = "3")int size){
-            return  ResponseEntity.getAllUser(page,size);}
+            return  jobApplicationService.getAllUser(page,size);}
 
     @GetMapping("/sort/{name}") 
 public List<JobApplication>getSorted(@PathVariable String name)
 {
-    return ResponseEntity.getsorted(name);
+    return jobApplicationService.getsorted(name);
+
 }
+
 }

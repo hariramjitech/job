@@ -9,7 +9,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import jobfind.job.entity.Company;
-import jobfind.job.entity.JobApplication;
 import jobfind.job.repository.CompanyRepository;
 
 import java.util.List;
@@ -43,7 +42,9 @@ public class CompanyService {
 
            public List<Company>getsorted(String name)
    {
-       return companyRepository.findAll(Sort.by(Direction.ASC,name) );}
+       return companyRepository.findAll(Sort.by(Direction.ASC,name) );
+    }
+
          public Page<Company> getAllUser(int page, int size) {
      Pageable pageable=PageRequest.of(page,size);
      return  companyRepository.findAll(pageable);

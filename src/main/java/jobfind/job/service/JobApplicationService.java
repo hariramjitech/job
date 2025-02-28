@@ -9,7 +9,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import jobfind.job.entity.JobApplication;
-import jobfind.job.entity.JobSeeker;
 import jobfind.job.repository.JobApplicationRepository;
 
 import java.util.List;
@@ -48,6 +47,4 @@ public class JobApplicationService {
      Pageable pageable=PageRequest.of(page,size);
      return  jobApplicationRepository.findAll(pageable);
    }
-
-
 }

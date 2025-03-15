@@ -51,6 +51,11 @@ public class UserService {
    public List<User>getsorted(String name)
    {
        return repodetailuser.findAll(Sort.by(Direction.ASC,name) );}
-
-
+  public List<User>findByName(String name)
+  {
+   return repodetailuser.findByName(name);
+  }
+  public String findEmailByName(String name){
+   return repodetailuser.findEmailByName(name);
+}
 }

@@ -60,4 +60,11 @@ public List<User>getSorted(@PathVariable String name)
 {
     return details.getsorted(name);
 }
+@GetMapping("/findByName/{name}")
+public List<User>findByName(@PathVariable String name){
+    return details.findByName(name);
+}
+@GetMapping("/findEmailByName/{name}")
+    public String findEmailByName(@PathVariable String name){
+        return details.findEmailByName(name);}
 }
